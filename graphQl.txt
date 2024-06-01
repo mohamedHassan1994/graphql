@@ -1,0 +1,85 @@
+
+mutation loginUser{
+  userLogin(email:"mohamed.coord94@gmail.com",password:"mohabeh1994")
+}
+
+mutation createUser{
+  userCreate(input:{name:"Ahmed",email:"Ahmed_radwan@gmail.com",password:"987654321"}){
+    name
+  }
+}
+
+query getOnePost{
+  getOnePost(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVhNmRlMzAyYzg1NmUyZGMyZjQ1N2IiLCJpYXQiOjE3MTcyMDI1MzR9.EYV2d43NClj9LMBBk4Joc16-NwxcttiuTWTmz-9eYsw",postId:"665a3a654b700b18e57a0e62"){
+    title
+    content
+    comments{
+      content
+    }
+  }
+}
+
+mutation createPost{
+  postCreate(title:"post created",content:"post created suceffully",token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVhNmRlMzAyYzg1NmUyZGMyZjQ1N2IiLCJpYXQiOjE3MTcyMDI3MzN9.QahLAmnwXaKjMsYPAb69FLyjUZccgyowahz3RjOcM7I")
+}
+
+mutation updatePost{
+  updatePost(postId:"665a6f3702c856e2dc2f4585",token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVhNmRlMzAyYzg1NmUyZGMyZjQ1N2IiLCJpYXQiOjE3MTcyMDI4MDJ9.3kaot57NpdiX50FyCy18H2r6QPg90C2vaAj0ROrGal4",
+    title:"Radwan birthday",
+    content:"Bla Bla Bla Bla Bla Bla")
+}
+
+mutation deletePost{
+  deletePost(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjU3YzRiZTQyNjYzZWRmYzFkODQ5YzQiLCJpYXQiOjE3MTcyMDI5NDh9.Syp0rw0Xo2yxRoIJ3T3kL2NrvOR-1SiIg86IU8t88Hs"
+    ,postId:"665a654b968c4c154614d251")
+}
+
+mutation createComment{
+  createComment(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjU3YzRiZTQyNjYzZWRmYzFkODQ5YzQiLCJpYXQiOjE3MTcyMDMyNzR9.TxXF9JGWkxzr_fgSpf9kRTM8td4l7xaerWi2M8HY7ik",
+    postId:"665a654b968c4c154614d251",
+    content:"Happy Birthday mohamed")
+}
+  
+
+query getOneComment{
+  getComment(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjU3YzRiZTQyNjYzZWRmYzFkODQ5YzQiLCJpYXQiOjE3MTcyMDMxNDh9.ZsUvcLfmYTVOiD93giDImbaRDXwVYcepzDEZ30CS0aM",
+    postId:"665a654b968c4c154614d251",
+    commentId:"665a717d02c856e2dc2f459a"){
+    content,
+    postId{
+      title,
+      content
+    },
+    userId{
+      name
+    }
+  }
+}
+
+
+  query getAllComment{
+  getAllComments(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjU3YzRiZTQyNjYzZWRmYzFkODQ5YzQiLCJpYXQiOjE3MTcyMDM0NjB9.hHT7pc-D07OuFIT_bpGNKTs8jzzgxcwpb-rRRbF97Iw",
+    postId:"665a654b968c4c154614d251"){
+    content,
+    postId{
+      title,
+      content
+    },
+    userId{
+      name
+    }
+  }
+}
+  
+mutation upadateComment{
+    updateComment(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjU3YzRiZTQyNjYzZWRmYzFkODQ5YzQiLCJpYXQiOjE3MTcyMDM1NDV9.hA30_AChsP-L-UK-j2mlzUBBiFiZObjCV9rrAeVwKWg",
+      postId:"665a654b968c4c154614d251",
+      commentId:"665a717d02c856e2dc2f459a",
+      content:"Happy Birthday mohamed w 3o2bal 130 sana")
+}
+
+mutation deleteComment{
+    deleteComment(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2U3N2Q5N2Q0NmUxOWEzOTQ3ZWU4MzMiLCJpYXQiOjE2NzYxMTUzOTd9.e_afD0Z0ouEOrSqTk-7e20Fuh6Ig67A2b4bJ6LtZHVE",
+      postId:"665a654b968c4c154614d251",
+      commentId:"665a717d02c856e2dc2f459a")
+}
